@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { StarIcon } from "@heroicons/react/24/outline";
+import { ClockIcon } from "@heroicons/react/24/outline";
+import { ExclamationCircleIcon } from "@heroicons/react/24/outline";
 
 const SimpleNav = () => {
     return (
@@ -33,9 +35,9 @@ const ResponsiveNav = () => {
                         </div>
                         <div className="flex hidden md:block pr-5">
                             <ul className="menu menu-horizontal p-0">
-                            <li className="px-2"><a>Due Today</a></li>
-                            <li className="px-2"><a>Important</a></li>
-                            <li className="px-2"><a>Pomodoro Timer</a></li>
+                            <li className="px-2"><a><ExclamationCircleIcon className="w-6 h-6"/>Due Today</a></li>
+                            <li className="px-2"><a><StarIcon className="w-6 h-6"/>Important</a></li>
+                            <li className="px-2"><a><ClockIcon className="w-6 h-6"/>Pomodoro Timer</a></li>
                             </ul>
                         </div>
                         <div className="flex">
@@ -53,10 +55,10 @@ const ResponsiveNav = () => {
             </div> 
             <div className="drawer-side rounded-r-lg shadow-md">
                 <label for="my-drawer-3" className="drawer-overlay"></label> 
-                <ul className="menu p-4 place-content-center overflow-y-auto w-40 bg-base-100">
-                <li className="py-2"><a>Due Today</a></li>
-                <li className="py-2"><a>Important</a></li>
-                <li className="py-2"><a>Pomodoro</a></li>
+                <ul className="menu p-4 place-content-center overflow-y-auto w-56 bg-base-100">
+                <li className="py-2"><a><ExclamationCircleIcon className="w-6 h-6"/>Due Today</a></li>
+                <li className="py-2"><a><StarIcon className="w-6 h-6"/>Important</a></li>
+                <li className="py-2"><a><ClockIcon className="w-6 h-6"/>Pomodoro</a></li>
                 </ul>
             </div>
         </div>
