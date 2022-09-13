@@ -1,12 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
-import ResponsiveNav from './components/Navbar';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Today from './pages/Today';
+import Important from './pages/Important';
 
 function App() {
   return (
-    <div>
-      <ResponsiveNav />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="Today" element={<Today />} />
+        <Route path="Important" element={<Important />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
