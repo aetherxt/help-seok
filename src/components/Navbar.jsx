@@ -15,7 +15,7 @@ const ResponsiveNav = () => {
                     <ul className="menu menu-horizontal p-0">
                     <li className="sm:px-2"><Link to="/today"><ExclamationCircleIcon className="w-6 h-6"/><p className="hidden md:block">Due Today</p></Link></li>
                     <li className="sm:px-2"><Link to="/important"><StarIcon className="w-6 h-6"/><p className="hidden md:block">Important</p></Link></li>
-                    <li className="sm:px-2"><a><ClockIcon className="w-6 h-6"/><p className="hidden md:block">Pomodoro Timer</p></a></li>
+                    <li className="sm:px-2"><Link to="/pomodoro"><ClockIcon className="w-6 h-6"/><p className="hidden md:block">Pomodoro Timer</p></Link></li>
                     </ul>
                 </div>
                 <div className="flex pl-1 sm:pl-5">

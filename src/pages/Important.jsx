@@ -7,7 +7,7 @@ const Today = () => {
             <ResponsiveNav />
             <div className="stats shadow pt-3">
                 <div className="stat">
-                <div className="stat-value text-primary flex align-middle tracking-wide"><StarIcon className="w-10 h-10 pr-2" />Important</div>
+                    <div className="stat-value text-primary flex align-middle tracking-wide"><StarIcon className="w-10 h-10 pr-2" />Important</div>
                     <div className="stat-desc">0 Tasks Remaining</div>
                 </div>
                 <div className="stat">
