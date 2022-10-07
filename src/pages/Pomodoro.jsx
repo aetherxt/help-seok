@@ -1,12 +1,35 @@
 import ResponsiveNav from "../components/Navbar";
 import { ClockIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
-import moment from "moment/moment";
 
 import Break from "../components/PomodoroBreak"; 
+import Session from "../components/PomodoroSession";
+import TimeLeft from "../components/TimeLeft";
 
 
 const Pomodoro = () => {
+    // Session
+    const [sessionLength, setSessionLength] = useState(300)
+    
+    const decreaseSession = () => {
+        let newSessionLength = sessionLength - 60
+        if (newSessionLength < 0){
+            setSessionLength(0);
+        } else {
+            setSessionLength(newSessionLength);
+        }
+    };
+    
+    const increaseSession = () => {
+        let newSessionLength = sessionLength + 60
+        if (newSessionLength > 18000) {
+            setSessionLength(18000);
+        } else {
+            setSessionLength(newSessionLength);
+        }
+    }
+    
+    //Break 
     const [breakLength, setBreakLength] = useState(300)
     
     const decreaseBreak = () => {
@@ -27,7 +50,6 @@ const Pomodoro = () => {
         }
     }
     
-    const breakLengthMinute = moment.duration(breakLength, 's').asMinutes()
     return (
         <div>
             <ResponsiveNav />
@@ -40,16 +62,24 @@ const Pomodoro = () => {
             <div className="hero bg-base-200 rounded-lg shadow px-5">
                 <div className="hero-content text-center">
                     <div className="max-w-md">
-                        <h2 className="text-3xl font-semibold text-secondary pb-3">Break</h2>
-                        <h1 className="text-4xl font-bold text-primary pb-3">{breakLengthMinute} Minutes</h1>
-                        
-                        <button className="btn btn-primary btn-outline btn-square text-2xl font-bold mx-2" onClick={increaseBreak}>+</button> 
-                        <button className="btn btn-primary btn-outline btn-square text-2xl font-bold mx-2" onClick={decreaseBreak}>-</button>
+                        <div><TimeLeft sessionLength={sessionLength}/></div>
+                        <div className="flex">
+                            <div className="py-4 px-5"><Break 
+                            breakLength={breakLength}
+                            increaseBreak={increaseBreak}
+                            decreaseBreak={decreaseBreak}
+                            /></div>
+                            <div className="py-4 px-5"><Session 
+                            sessionLength={sessionLength}
+                            increaseSession={increaseSession}
+                            decreaseSession={decreaseSession}
+                            /></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     );
-}
+};
 
 export default Pomodoro;
