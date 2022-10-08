@@ -62,7 +62,7 @@ const Pomodoro = () => {
             <div className="hero bg-base-200 rounded-lg shadow px-5">
                 <div className="hero-content text-center">
                     <div className="max-w-md">
-                        <div><TimeLeft sessionLength={sessionLength}/></div>
+                        <div><TimeLeft breakLength={breakLength} sessionLength={sessionLength}/></div>
                         <div className="flex">
                             <div className="py-4 px-5"><Break 
                             breakLength={breakLength}
