@@ -1,6 +1,7 @@
 import ResponsiveNav from "../components/Navbar";
 import { ClockIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
+import { useEffect } from "react";
 
 import Break from "../components/PomodoroBreak"; 
 import Session from "../components/PomodoroSession";
@@ -10,6 +11,9 @@ import TimeLeft from "../components/TimeLeft";
 const Pomodoro = () => {
     // Session
     const [sessionLength, setSessionLength] = useState(300)
+    const [currentSessionType, setCurrentSessionType] = useState('work');
+    const [timeLeft, setTimeLeft] = useState(sessionLength);
+    const [intervalId, setIntervalId] = useState(null);
     
     const decreaseSession = () => {
         let newSessionLength = sessionLength - 60
@@ -50,6 +54,46 @@ const Pomodoro = () => {
         }
     }
     
+    useEffect(() => {
+        setTimeLeft(sessionLength);
+    }, [sessionLength])
+    
+    useEffect(() => {
+        if (timeLeft === 0) {
+            if (currentSessionType === 'work') {
+                setCurrentSessionType('break');
+                setTimeLeft(breakLength);
+            }
+            else if (currentSessionType === 'break') {
+                setCurrentSessionType('work');
+                setTimeLeft(sessionLength);
+            }
+        }
+    }, [breakLength, sessionLength, currentSessionType, timeLeft])
+    
+    const isStarted = intervalId != null;
+    const timerStartStop = () => {
+        if (isStarted) {
+            
+            clearInterval(intervalId);
+            setIntervalId(null);
+        } else {
+            const newIntervalId = setInterval(() => {
+                setTimeLeft(prevTimeLeft => prevTimeLeft - 1)
+            }, 1000);
+            setIntervalId(newIntervalId);
+        }
+    };
+    
+    const resetButton = () => {
+        clearInterval(intervalId)
+        setInterval(null)
+        setCurrentSessionType('work')
+        setSessionLength(60*25)
+        setBreakLength(60*5)
+        setTimeLeft(60)
+    }
+    
     return (
         <div>
             <ResponsiveNav />
@@ -62,7 +106,12 @@ const Pomodoro = () => {
             <div className="hero bg-base-200 rounded-lg shadow px-5">
                 <div className="hero-content text-center">
                     <div className="max-w-md">
-                        <div><TimeLeft breakLength={breakLength} sessionLength={sessionLength}/></div>
+                        <div><TimeLeft 
+                        currentSessionType={currentSessionType}
+                        timerStartStop={timerStartStop}
+                        timerStartStopLabel={isStarted ? 'Stop' : 'Start'}
+                        timeLeft={timeLeft}
+                        /></div>
                         <div className="flex">
                             <div className="py-4 px-5"><Break 
                             breakLength={breakLength}
