@@ -10,7 +10,9 @@ import TimeLeft from "../components/TimeLeft";
 
 const Pomodoro = () => {
     // Session
-    const [sessionLength, setSessionLength] = useState(300)
+    const defaultSessionLength = 60*25
+    const defaultBreakLength = 60*5
+    const [sessionLength, setSessionLength] = useState(defaultSessionLength)
     const [currentSessionType, setCurrentSessionType] = useState('work');
     const [timeLeft, setTimeLeft] = useState(sessionLength);
     const [intervalId, setIntervalId] = useState(null);
@@ -26,15 +28,15 @@ const Pomodoro = () => {
     
     const increaseSession = () => {
         let newSessionLength = sessionLength + 60
-        if (newSessionLength > 18000) {
-            setSessionLength(18000);
+        if (newSessionLength > 300*60) {
+            setSessionLength(300*60);
         } else {
             setSessionLength(newSessionLength);
         }
     }
     
     //Break 
-    const [breakLength, setBreakLength] = useState(300)
+    const [breakLength, setBreakLength] = useState(defaultBreakLength)
     
     const decreaseBreak = () => {
         let newBreakLength = breakLength - 60
@@ -47,8 +49,8 @@ const Pomodoro = () => {
     
     const increaseBreak = () => {
         let newBreakLength = breakLength + 60
-        if (newBreakLength > 18000) {
-            setBreakLength(18000);
+        if (newBreakLength > 300*60) {
+            setBreakLength(300*60);
         } else {
             setBreakLength(newBreakLength);
         }
@@ -89,9 +91,9 @@ const Pomodoro = () => {
         clearInterval(intervalId)
         setInterval(null)
         setCurrentSessionType('work')
-        setSessionLength(60*25)
-        setBreakLength(60*5)
-        setTimeLeft(60)
+        setSessionLength(defaultSessionLength)
+        setBreakLength(defaultBreakLength)
+        setTimeLeft(defaultSessionLength)
     }
     
     return (
@@ -111,6 +113,7 @@ const Pomodoro = () => {
                         timerStartStop={timerStartStop}
                         timerStartStopLabel={isStarted ? 'Stop' : 'Start'}
                         timeLeft={timeLeft}
+                        resetButton={resetButton}
                         /></div>
                         <div className="flex">
                             <div className="py-4 px-5"><Break 
