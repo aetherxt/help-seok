@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/help-seok/static/css/main.8638619f.css",
+    "main.js": "/help-seok/static/js/main.a0919643.js",
+    "static/js/787.06eb36ba.chunk.js": "/help-seok/static/js/787.06eb36ba.chunk.js",
+    "index.html": "/help-seok/index.html",
+    "main.8638619f.css.map": "/help-seok/static/css/main.8638619f.css.map",
+    "main.a0919643.js.map": "/help-seok/static/js/main.a0919643.js.map",
+    "787.06eb36ba.chunk.js.map": "/help-seok/static/js/787.06eb36ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8638619f.css",
+    "static/js/main.a0919643.js"
+  ]
+}
