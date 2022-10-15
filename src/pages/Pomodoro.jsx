@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import Break from "../components/PomodoroBreak"; 
 import Session from "../components/PomodoroSession";
 import TimeLeft from "../components/TimeLeft";
+import { current } from "daisyui/src/colors";
 
 
 const Pomodoro = () => {
@@ -16,12 +17,11 @@ const Pomodoro = () => {
     const [currentSessionType, setCurrentSessionType] = useState('work');
     const [timeLeft, setTimeLeft] = useState(sessionLength);
     const [intervalId, setIntervalId] = useState(null);
+    const [percentTimeLeft, setPercentTimeLeft] = useState(100);
     
     const decreaseSession = () => {
         let newSessionLength = sessionLength - 60
-        if (newSessionLength < 0){
-            setSessionLength(0);
-        } else {
+        if (newSessionLength >= 60){
             setSessionLength(newSessionLength);
         }
     };
@@ -40,9 +40,7 @@ const Pomodoro = () => {
     
     const decreaseBreak = () => {
         let newBreakLength = breakLength - 60
-        if (newBreakLength < 0){
-            setBreakLength(0);
-        } else {
+        if (newBreakLength >= 60){
             setBreakLength(newBreakLength);
         }
     };
@@ -89,12 +87,23 @@ const Pomodoro = () => {
     
     const resetButton = () => {
         clearInterval(intervalId)
-        setInterval(null)
+        setIntervalId(null)
         setCurrentSessionType('work')
         setSessionLength(defaultSessionLength)
         setBreakLength(defaultBreakLength)
         setTimeLeft(defaultSessionLength)
     }
+    
+    useEffect(() => {
+        if (currentSessionType === "work") {
+            let newPercentTimeLeft = Math.floor((timeLeft / sessionLength) * 100)
+            setPercentTimeLeft(newPercentTimeLeft)
+        }
+        else if (currentSessionType == "break") {
+            let newPercentTimeLeft = Math.floor((timeLeft / breakLength) * 100)
+            setPercentTimeLeft(newPercentTimeLeft)
+        }
+    }, [currentSessionType, timeLeft, sessionLength, breakLength])
     
     return (
         <div>
@@ -114,8 +123,9 @@ const Pomodoro = () => {
                         timerStartStopLabel={isStarted ? 'Stop' : 'Start'}
                         timeLeft={timeLeft}
                         resetButton={resetButton}
+                        percentTimeLeft={percentTimeLeft}
                         /></div>
-                        <div className="flex">
+                        <div className="flex pt-5">
                             <div className="py-4 px-5"><Break 
                             breakLength={breakLength}
                             increaseBreak={increaseBreak}
