@@ -1,5 +1,7 @@
+import react from 'react';
+import { useState } from 'react';
 import ResponsiveNav from "../components/Navbar";
-import TodoForm from "../components/TodoForm";
+import TodoList from "../components/TodoList";
 import { UserIcon } from "@heroicons/react/24/solid";
 
 const Home = () => {
@@ -16,10 +18,10 @@ const Home = () => {
                     <div className="stat-title">Tasks Done</div>
                 </div>
             </div>
-            <div className="hero bg-base-200 rounded-lg shadow px-5">
+            <div className="hero rounded-lg shadow px-5">
                 <div className="hero-content text-center w-1/2">
                     <div className="w-full">
-                        <TodoForm />
+                        <TodoList />
                     </div>
                 </div>
             </div>

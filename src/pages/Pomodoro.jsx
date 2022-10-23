@@ -114,7 +114,7 @@ const Pomodoro = () => {
                     <div className="stat-title">Concentrate on your work</div>
                 </div>
             </div>
-            <div className="hero bg-base-200 rounded-lg shadow px-5">
+            <div className="hero rounded-lg shadow px-5">
                 <div className="hero-content text-center">
                     <div className="max-w-md">
                         <div><TimeLeft 
