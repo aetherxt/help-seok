@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/help-seok/static/css/main.7fcb3931.css",
-    "main.js": "/help-seok/static/js/main.10ecb91e.js",
+    "main.js": "/help-seok/static/js/main.c5961ace.js",
     "static/js/787.06eb36ba.chunk.js": "/help-seok/static/js/787.06eb36ba.chunk.js",
     "index.html": "/help-seok/index.html",
     "main.7fcb3931.css.map": "/help-seok/static/css/main.7fcb3931.css.map",
-    "main.10ecb91e.js.map": "/help-seok/static/js/main.10ecb91e.js.map",
+    "main.c5961ace.js.map": "/help-seok/static/js/main.c5961ace.js.map",
     "787.06eb36ba.chunk.js.map": "/help-seok/static/js/787.06eb36ba.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7fcb3931.css",
-    "static/js/main.10ecb91e.js"
+    "static/js/main.c5961ace.js"
   ]
 }
