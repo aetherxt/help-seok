@@ -1,5 +1,5 @@
 # HelpSeok
-Productivity website  to help Seok Yun do his homework on time 
+Productivity website to help you do your work on time
 
 # Getting Started with Create React App
 
