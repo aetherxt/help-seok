@@ -11,11 +11,7 @@ const Home = () => {
             <div className="stats shadow pt-3">
                 <div className="stat">
                     <div className="stat-value text-primary flex align-middle tracking-wide"><UserIcon className="w-10 h-10 pr-2" />Welcome Back</div>
-                    <div className="stat-desc">0 Tasks Remaining</div>
-                </div>
-                <div className="stat">
-                    <div className="stat-value">100%</div>
-                    <div className="stat-title">Tasks Done</div>
+                    <div className="stat-desc">Get Something Done</div>
                 </div>
             </div>
             <div className="hero rounded-lg shadow px-5">

@@ -9,12 +9,12 @@ const ResponsiveNav = () => {
         <div className="navbar bg-neutral w-full text-neutral-content rounded-b-lg shadow-md">
             <div className="flex w-full justify-between">
                 <div className="flex overflow-hidden p-1 sm:px-5">
-                    <Link to="/" className="btn normal-case text-xl">Pain</Link>
+                    <Link to="/" className="btn normal-case text-xl">DoYourWork</Link>
                 </div>
                 <div className="flex">
                     <ul className="menu menu-horizontal p-0">
-                    <li className="sm:px-2"><Link to="/"><ExclamationCircleIcon className="w-6 h-6"/><p className="hidden md:block">Todo</p></Link></li>
-                    <li className="sm:px-2"><Link to="/pomodoro"><ClockIcon className="w-6 h-6"/><p className="hidden md:block">Pomodoro Timer</p></Link></li>
+                        <li className="sm:px-2"><Link to="/"><ExclamationCircleIcon className="w-6 h-6" /><p className="hidden md:block">Todo</p></Link></li>
+                        <li className="sm:px-2"><Link to="/pomodoro"><ClockIcon className="w-6 h-6" /><p className="hidden md:block">Pomodoro Timer</p></Link></li>
                     </ul>
                 </div>
                 <div className="flex pl-1 sm:pl-5">
